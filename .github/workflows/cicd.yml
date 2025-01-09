@@ -1,9 +1,12 @@
-name: 'name: 'Terraform_Deploy GKE to GCP'
+name: 'Terraform_Deploy GKE to GCP'
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
   pull_request:
+    branches:
+      - "main"
 
 jobs:
   terraform:
