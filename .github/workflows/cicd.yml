@@ -2,7 +2,8 @@ name: 'Terraform_Deploy GKE to GCP'
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
   pull_request:
 
 jobs:
@@ -47,7 +48,8 @@ jobs:
             -var="project_id=${{ secrets.GCP_PROJECT_ID }}" \
             -var="region=us-central1"
 
-      # Step 6: Terraform Destroy (uncomment Apply if required)
+      # Step 6: Terraform Destroy (Optional)
+      # Uncomment Apply if required
       # - name: Terraform Apply
       #   run: terraform apply -auto-approve -input=false -var="project_id=${{ secrets.GCP_PROJECT_ID }}" -var="region=us-central1"
 
@@ -67,10 +69,7 @@ jobs:
       # Step 8: Configure kubectl for GKE
       - name: Configure kubectl for GKE
         run: |
-          - name: Configure kubectl for GKE
-  run: |
-           gcloud container clusters get-credentials dev-cluster --zone us-central1-a --project ${{ secrets.GCP_PROJECT_ID }}
-
+          gcloud container clusters get-credentials dev-cluster --zone us-central1-a --project ${{ secrets.GCP_PROJECT_ID }}
 
       # Step 9: Deploy CertManager
       - name: Deploy CertManager
