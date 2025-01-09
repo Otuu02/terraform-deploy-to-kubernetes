@@ -1,4 +1,4 @@
-terraform {
+pterraform {
   required_providers {
     google = {
       source = "hashicorp/google"
@@ -8,9 +8,21 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("gcp-key-json") # This should match the service account key file in the pipeline
-  project     = var.project_id      # Use a variable for flexibility
-  region      = var.region          # Use a variable for region
+  project     = var.project_id
+  region      = var.region
+  credentials = file(var.credentials_file)
+}
+
+variable "project_id" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}
+
+variable "credentials_file" {
+  type = string
 }
 
 
