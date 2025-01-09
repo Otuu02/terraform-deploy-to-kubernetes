@@ -4,7 +4,7 @@ terraform {
     organization = "Gtechglobal" 
 
     workspaces { 
-      name = "kubernetes-google-gke" 
+      name = "kubernetes-gcp-gke" 
     } 
   } 
 }
