@@ -1,7 +1,7 @@
 terraform { 
   cloud { 
     
-    organization = "DigitalWitchng" 
+    organization = "Gtechglobal" 
 
     workspaces { 
       name = "kubernetes-google-gke" 

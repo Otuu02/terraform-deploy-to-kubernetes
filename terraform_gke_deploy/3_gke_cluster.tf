@@ -1,7 +1,7 @@
 # Create GKE Cluster
 #====================
 resource "google_container_cluster" "primary" {
-  name                     = "dev-cluster"
+  name                     = "dev-kubernetes-cluster"
   location                 = "us-central1-a"
   remove_default_node_pool = true
   initial_node_count       = 1
